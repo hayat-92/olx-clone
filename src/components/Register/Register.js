@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Register.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { baseURL } from "../config";
 
 function Register() {
   const [name, setName] = useState();
@@ -93,7 +94,7 @@ function Register() {
       body: JSON.stringify(dxt),
     };
     try {
-      const fetchResponse = await fetch(`/api/user/`, settings);
+      const fetchResponse = await fetch(`${baseURL}/api/user/`, settings);
       console.log("Two");
       const data = await fetchResponse.json();
       // PopUp

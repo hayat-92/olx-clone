@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { baseURL } from "../config";
 function Login() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -44,7 +45,7 @@ function Login() {
       body: JSON.stringify(dxt),
     };
     try {
-      const fetchResponse = await fetch(`/api/user/login`, settings);
+      const fetchResponse = await fetch(`${baseURL}/api/user/login`, settings);
       const data = await fetchResponse.json();
       console.log(data);
       if (!data.email || data.message) {

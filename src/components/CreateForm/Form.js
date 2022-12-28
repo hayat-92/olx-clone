@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { CartState } from "../../Context";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { baseURL } from "../config";
 
 export const Form = () => {
   const [image, setImage] = React.useState();
@@ -127,7 +128,7 @@ export const Form = () => {
       body: JSON.stringify(dxt),
     };
     try {
-      const fetchResponse = await fetch(`/api/product/`, settings);
+      const fetchResponse = await fetch(`${baseURL}/api/product/`, settings);
       const data = await fetchResponse.json();
       // PopUp
       toast.success("products imported successfully!", {
